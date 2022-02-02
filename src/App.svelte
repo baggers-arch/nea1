@@ -15,7 +15,7 @@ let password = ''
 
 
 let findData=(userName)=>{
-    //fetch(url+'/find1',{
+    //fetch(url+'/find1',{  // local
     fetch('/api/findUser',{
       method:"POST",
       headers:{
@@ -27,7 +27,9 @@ let findData=(userName)=>{
 
     }).then(res=>res.json()).then(data=>{
       console.log(data);
-      outputData=data.results;
+      outputData=data.results; // local
+      outputData=data.users; // local
+      
       password=(outputData[0].Password);
       console.log(password)
       if (inputPassword != []){
