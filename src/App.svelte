@@ -41,7 +41,8 @@ let findData=(userName)=>{
 
 let getTutorData=()=>{
  
-  fetch(url+'/find2',{
+  //fetch(url+'/find2',{  // local
+  fetch('/api/getTuteeData',{
       method:"POST",
       headers:{
         'Accept':'application/json',
@@ -52,7 +53,7 @@ let getTutorData=()=>{
 
     }).then(res=>res.json()).then(data=>{
       console.log(data);
-      outputData=data.results;
+      //outputData=data.results;
      
     });
 
