@@ -53,7 +53,7 @@ let getTutorData=()=>{
 
     }).then(res=>res.json()).then(data=>{
       console.log(data);
-      //outputData=data.results;
+      outputData=data.users;
      
     });
 
