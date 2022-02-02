@@ -7,6 +7,13 @@ let url='http://127.0.0.1:3000';
 
 let outputData=[];
 
+let inputUsername = ''
+let inputPassword = ''
+let password = ''
+
+
+
+
 let findData=(userName)=>{
     fetch(url+'/find1',{
       method:"POST",
@@ -29,23 +36,47 @@ let findData=(userName)=>{
 
 
 
+let getTutorData=()=>{
+  fetch(url+'/find2',{
+      method:"POST",
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json'
+      },
+      body:JSON.stringify({user:inputUsername})
+      
+
+    }).then(res=>res.json()).then(data=>{
+      console.log(data);
+      outputData=data.results;
+     
+    });
+
+};
+
+
 
 let getAllData=()=>{
-  fetch(url+'/read1',{
-
+  //fetch(url+'/read1',{
+  fetch('/api/auth',{
   }).then(res=>res.json()).then(data=>{
+    console.log('getAllData()');
     console.log(data);
  
   });
 }
 
-
+getAllData();
 
 let checkPassword=()=>{
   if (inputPassword != []){
-    if (password === inputPassword){
-    console.log(password === inputPassword)
-    window.alert("Password Success") }
+    if (password === inputPassword) {
+      console.log(password === inputPassword)
+      window.alert("Password Success") 
+        getTutorData();
+  
+  
+    }
     
     else {
       window.alert("Wrong Username or Password")
@@ -63,9 +94,6 @@ let handleClick=()=>{
   
 
 
-let inputUsername = ''
-let inputPassword = ''
-let password = ''
 </script>
 
 
@@ -76,19 +104,7 @@ let password = ''
 <button on:click={handleClick}>Submit</button>
 <p>Welcome! {inputUsername}</p>
 
-<!--
-<script>
-  import Line from "svelte-chartjs/src/Line.svelte"
-</script>
--->
-<!--
-<Bar
-  data={data}
-  width={100}
-  height={50}
-  options={{ maintainAspectRatio: false }}
-/>
--->
+
 
 </body>
 {#if !!outputData[0]}
@@ -105,6 +121,13 @@ let password = ''
   {/each}
   </table>
 
+
+{/if}
+
+
+
+{#if !!outputData[0]}
+  {JSON.stringify(outputData)}
 
 {/if}
 
