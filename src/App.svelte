@@ -37,7 +37,8 @@ let findData=(userName)=>{
 
 
 let getTutorData=()=>{
-  fetch(url+'/find2',{
+  fetch(url+'/api/findUser',{
+  //fetch(url+'/find2',{
       method:"POST",
       headers:{
         'Accept':'application/json',
