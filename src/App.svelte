@@ -15,7 +15,8 @@ let password = ''
 
 
 let findData=(userName)=>{
-    fetch(url+'/find1',{
+    //fetch(url+'/find1',{
+    fetch(url+'/api/findUser',{
       method:"POST",
       headers:{
         'Accept':'application/json',
@@ -37,8 +38,8 @@ let findData=(userName)=>{
 
 
 let getTutorData=()=>{
-  fetch(url+'/api/findUser',{
-  //fetch(url+'/find2',{
+ 
+  fetch(url+'/find2',{
       method:"POST",
       headers:{
         'Accept':'application/json',
