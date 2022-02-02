@@ -16,7 +16,7 @@ let password = ''
 
 let findData=(userName)=>{
     //fetch(url+'/find1',{
-    fetch(url+'/api/findUser',{
+    fetch('/api/findUser',{
       method:"POST",
       headers:{
         'Accept':'application/json',
